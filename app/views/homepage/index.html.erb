@@ -5,526 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Portfolio - Fresh Graduate Developer</title>
     <style>
         * {
             font-family: "Sarabun", sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
-
-        :root {
-            --primary-color: #0066cc;
-            --primary-dark: #004fa3;
-            --secondary-color: #00d9ff;
-            --text-dark: #1a1a1a;
-            --text-light: #666666;
-            --bg-light: #f5f7fa;
-            --bg-white: #ffffff;
-            --border-color: #e0e0e0;
-            --accent-color: #ff6b6b;
-        }
-
         html {
             scroll-behavior: smooth;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--bg-white);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo h2 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e0f2ff 100%);
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero-text {
-            animation: fadeInLeft 0.8s ease;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .btn {
-            padding: 12px 32px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
-        }
-
-        .hero-visual {
-            animation: fadeInRight 0.8s ease;
-        }
-
-        .code-box {
-            background: #1a1a1a;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 2rem;
-            font-family: 'Courier New', monospace;
-            color: #a0e7e5;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .code-line {
-            margin: 0.5rem 0;
-            font-size: 0.95rem;
-        }
-
-        .code-tag {
-            color: #ff6b6b;
-        }
-
-        .indent-1 {
-            margin-left: 2rem;
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--bg-light);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        
-        }
-
-        .about-stats {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .stat {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .stat h3 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat p {
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        /* Skills Section */
-        .skills {
-            background: white;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .skill-category {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 102, 204, 0.1);
-        }
-
-        .skill-category h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .skill-tag {
-            background: white;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Projects Section */
-        .projects {
-            background: var(--bg-light);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary-color);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-        }
-
-        .project-header h3 {
-            font-size: 1.3rem;
-            color: var(--text-dark);
-        }
-
-        .project-date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
-
-        .project-description {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-badge {
-            background: var(--secondary-color);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: white;
-        }
-
-        .contact-content {
-            text-align: center;
-        }
-
-        .contact-text {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 12px 24px;
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 102, 204, 0.2);
-        }
-
-        .contact-link:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
-        }
-
-        .contact-link span {
-            font-size: 1.2rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--text-dark);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 0;
-        }
-
-        .footer-content {
-            color: #999;
-        }
-
-        /* Animations */
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#404040',
+                        accent: '#666666',
+                        blue: '#2563eb',
+                    }
+                }
             }
         }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                padding-top: 2rem;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-links {
-                gap: 1rem;
-            }
-        }
-        </style>
-
+    </script>
 </head>
-<body>
+<body class="bg-white text-primary antialiased">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-content">
-            <div class="logo">
-                <h2>Just Dev</h2>
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xl font-semibold">Just Dev</h2>
+                <ul class="flex gap-8 text-sm">
+                    <li><a href="#about" class="hover:text-secondary transition-colors">เกี่ยวกับตัวเอง</a></li>
+                    <li><a href="#skills" class="hover:text-secondary transition-colors">ทักษะ</a></li>
+                    <li><a href="#projects" class="hover:text-secondary transition-colors">โครงการ</a></li>
+                    <li><a href="#contact" class="hover:text-secondary transition-colors">ติดต่อ</a></li>
+                </ul>
             </div>
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link">เกี่ยวกับตัวเอง</a></li>
-                <li><a href="#skills" class="nav-link">ทักษะ</a></li>
-                <li><a href="#projects" class="nav-link">โครงการ</a></li>
-                <li><a href="#contact" class="nav-link">ติดต่อ</a></li>
-            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">สวัสดี ฉันชื่อ Just (จัส)</h1>
-                <p class="hero-subtitle">Full Stack Developer</p>
-                <p class="hero-description">สวัสดีครับ ผมเป็นนักศึกษาวิศวกรรมคอมพิวเตอร์และสนใจ Full-stack Development ชอบทำเว็บแอปตั้งแต่หน้าบ้านถึงหลังบ้าน ชอบลองเทคโนโลยีใหม่ๆ และพร้อมเรียนรู้ตลอดเวลา</p>
-                <a href="#projects" class="btn btn-primary">ดูโครงการของฉัน</a>
-            </div>
-            <div class="hero-visual">
-                <div class="code-box">
-                    <div class="code-line"><span class="code-tag">&lt;div&gt;</span></div>
-                    <div class="code-line indent-1"><span class="code-tag">&lt;h1&gt;</span>Hello Jessada<span class="code-tag">&lt;/h1&gt;</span></div>
-                    <div class="code-line indent-1"><span class="code-tag">&lt;p&gt;</span>Welcome!<span class="code-tag">&lt;/p&gt;</span></div>
-                    <div class="code-line"><span class="code-tag">&lt;/div&gt;</span></div>
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6">
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight"><p>สวัสดี</p><p class="mt-4">ฉันชื่อ Just (จัส)</p></h1>
+                    <p class="text-xl text-secondary font-medium ">Full Stack Developer</p>
+                    <p class="text-accent leading-relaxed">สวัสดีครับ ผมเป็นนักศึกษาวิศวกรรมคอมพิวเตอร์และสนใจ Full-stack Development ชอบทำเว็บแอปตั้งแต่หน้าบ้านถึงหลังบ้าน ชอบลองเทคโนโลยีใหม่ๆ และพร้อมเรียนรู้ตลอดเวลา</p>
+                    <a href="#projects" class="inline-block px-8 py-3 bg-primary text-white font-medium hover:bg-secondary transition-colors mt-4">
+                        ดูโครงการของฉัน
+                    </a>
+                </div>
+                <div class="bg-gray-50 p-8 font-mono text-sm border border-gray-200">
+                    <div class="text-accent">
+                        <div>&lt;div&gt;</div>
+                        <div class="ml-6">&lt;h1&gt;Hello Jessada&lt;/h1&gt;</div>
+                        <div class="ml-6">&lt;p&gt;Welcome!&lt;/p&gt;</div>
+                        <div>&lt;/div&gt;</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">เกี่ยวกับตัวเอง</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>สวัสดีครับ ผมเป็นนักศึกษาวิศวกรรมคอมพิวเตอร์และสนใจ Full-stack Development ชอบทำเว็บแอปตั้งแต่หน้าบ้านถึงหลังบ้าน ชอบลองเทคโนโลยีใหม่ๆ และพร้อมเรียนรู้ตลอดเวลา</p>
+    <section id="about" class="py-20 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center">เกี่ยวกับตัวเอง</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 p-[150px] border border-gray-200 bg-white hover:border-primary transition-colors">
+                    <p class="text-accent leading-relaxed text-lg hover:text-black transition-colors">สวัสดีครับ ผมเป็นนักศึกษาวิศวกรรมคอมพิวเตอร์และสนใจ Full-stack Development ชอบทำเว็บแอปตั้งแต่หน้าบ้านถึงหลังบ้าน ชอบลองเทคโนโลยีใหม่ๆ และพร้อมเรียนรู้ตลอดเวลา</p>
                 </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <h3>4+</h3>
-                        <p>โครงการเสร็จสิ้น</p>
+                <div class="space-y-6">
+                    <div class="bg-white p-6 border border-gray-200 text-center hover:border-primary transition-colors">
+                        <h3 class="text-4xl font-bold mb-2">4+</h3>
+                        <p class="text-accent">โครงการเสร็จสิ้น</p>
                     </div>
-                    <div class="stat">
-                        <h3>2+</h3>
-                        <p>ปีประสบการณ์</p>
+                    <div class="bg-white p-6 border border-gray-200 text-center hover:border-primary transition-colors">
+                        <h3 class="text-4xl font-bold mb-2">2+</h3>
+                        <p class="text-accent">ปีประสบการณ์</p>
                     </div>
-                    <div class="stat">
-                        <h3>10+</h3>
-                        <p>เทคโนโลยีที่เรียนรู้</p>
+                    <div class="bg-white p-6 border border-gray-200 text-center hover:border-primary transition-colors">
+                        <h3 class="text-4xl font-bold mb-2">10+</h3>
+                        <p class="text-accent">เทคโนโลยีที่เรียนรู้</p>
                     </div>
                 </div>
             </div>
@@ -532,40 +98,40 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">ทักษะของฉัน</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Tailwind CSS</span>
-                        <span class="skill-tag">Bootstrap</span>
+    <section id="skills" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center">ทักษะของฉัน</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 border border-gray-200 hover:border-primary transition-colors">
+                    <h3 class="text-2xl font-semibold mb-6">Frontend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">HTML5</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">CSS3</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">JavaScript</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">React</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">Tailwind CSS</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">Bootstrap</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Express</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">MySQL</span>
+                <div class="bg-gray-50 p-8 border border-gray-200 hover:border-primary transition-colors">
+                    <h3 class="text-2xl font-semibold mb-6">Backend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">Node.js</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">Express</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">Python</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">MongoDB</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">MySQL</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Tools & Other</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">RESTful API</span>
-                        <span class="skill-tag">Responsive Design</span>
+                <div class="bg-gray-50 p-8 border border-gray-200 hover:border-primary transition-colors">
+                    <h3 class="text-2xl font-semibold mb-6">Tools & Other</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">Git</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">VS Code</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">Postman</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">Figma</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">RESTful API</span>
+                        <span class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium hover:border-primary transition-colors">Responsive Design</span>
                     </div>
                 </div>
             </div>
@@ -573,61 +139,60 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">โครงการของฉัน</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Valeria</h3>
-                        <p class="project-date">2024</p>
+    <section id="projects" class="py-20 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center">โครงการของฉัน</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-8 border-l-4 border-primary hover:shadow-lg transition-shadow">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-semibold">Valeria</h3>
+                        <span class="text-accent text-sm">2024</span>
                     </div>
-                    <p class="project-description">เป็นระบบขายภาพ (ใช้ API จาก Pixabay ในการแสดงผล) ที่มีตระกร้าที่ใช้ LocalStorage และ แสกนจ่ายด้วย QR-Code (ไม่ได้ใช้ Payment GateWay) ฐานข้อมูลใช้ Supabase</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Svelte</span>
-                        <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">Tailwind CSS</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>MineTube</h3>
-                        <p class="project-date">2024</p>
-                    </div>
-                    <p class="project-description">เป็นโปรเจคที่กำลังพัฒนาโดยการ Vibe Codeing แนวคิดโปรเจคนี้คือการนำ url จาก คลิปเพลงใน Youtube มาใช้เป็น Playlist โดยตกแต่งเป็น Style 8 bit และเพลงจะเก็บไว้ที่ Localstorage เป็น URL Youtube</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Next.js</span>
-                        <span class="tech-badge">Localstorage</span>
-                        <span class="tech-badge">Tailwind</span>
+                    <p class="text-accent leading-relaxed mb-6">เป็นระบบขายภาพ (ใช้ API จาก Pixabay ในการแสดงผล) ที่มีตระกร้าที่ใช้ LocalStorage และ แสกนจ่ายด้วย QR-Code (ไม่ได้ใช้ Payment GateWay) ฐานข้อมูลใช้ Supabase</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Svelte</span>
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Node.js</span>
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Tailwind CSS</span>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>ระบบสนับสนุนการเสนอหัวข้อโครงงาน</h3>
-                        <p class="project-date">2023</p>
+                <div class="bg-white p-8 border-l-4 border-primary hover:shadow-lg transition-shadow">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-semibold">MineTube</h3>
+                        <span class="text-accent text-sm">2024</span>
                     </div>
-                    <p class="project-description">เป็นระบบสนับการส่งหัวข้อโครงงานที่พัฒนาด้วย Svelte และ Firebase ที่ช่วยให้นักศึกษาเสนอหัวข้อโครงงานได้อย่างง่ายดาย</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Svelte</span>
-                        <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">Tailwind CSS</span>
-                        <span class="tech-badge">Firebase</span>
+                    <p class="text-accent leading-relaxed mb-6">เป็นโปรเจคที่กำลังพัฒนาโดยการ Vibe Codeing แนวคิดโปรเจคนี้คือการนำ url จาก คลิปเพลงใน Youtube มาใช้เป็น Playlist โดยตกแต่งเป็น Style 8 bit และเพลงจะเก็บไว้ที่ Localstorage เป็น URL Youtube</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Next.js</span>
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Localstorage</span>
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Tailwind</span>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>พรีวิว โมเดล 3 D</h3>
-                        <p class="project-date">2023</p>
+                <div class="bg-white p-8 border-l-4 border-primary hover:shadow-lg transition-shadow">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-semibold">ระบบสนับสนุนการเสนอหัวข้อโครงงาน</h3>
+                        <span class="text-accent text-sm">2023</span>
                     </div>
-                    <p class="project-description">เว็บแอปพลิเคชั่นในการแสดงโมเดล 3d ที่เตรียมใว้พร้อมการเปลี่ยนพื้นหลัง และยังสามารถ ทดสอบโมเดลของคุณได้โดย import เข้าไป เพื่อแสดงผลหน้าเว็บ พร้อมการแสดงผลเต็มหน้าจอ</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">React</span>
-                        <span class="tech-badge">Tailwind css</span>
-                        <span class="tech-badge">Three js
-</span>
+                    <p class="text-accent leading-relaxed mb-6">เป็นระบบสนับการส่งหัวข้อโครงงานที่พัฒนาด้วย Svelte และ Firebase ที่ช่วยให้นักศึกษาเสนอหัวข้อโครงงานได้อย่างง่ายดาย</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Svelte</span>
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Node.js</span>
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Tailwind CSS</span>
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Firebase</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 border-l-4 border-primary hover:shadow-lg transition-shadow">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-semibold">พรีวิว โมเดล 3D</h3>
+                        <span class="text-accent text-sm">2023</span>
+                    </div>
+                    <p class="text-accent leading-relaxed mb-6">เว็บแอปพลิเคชั่นในการแสดงโมเดล 3d ที่เตรียมใว้พร้อมการเปลี่ยนพื้นหลัง และยังสามารถ ทดสอบโมเดลของคุณได้โดย import เข้าไป เพื่อแสดงผลหน้าเว็บ พร้อมการแสดงผลเต็มหน้าจอ</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">React</span>
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Tailwind css</span>
+                        <span class="px-3 py-1 bg-gray-100 text-xs font-medium">Three js</span>
                     </div>
                 </div>
             </div>
@@ -635,25 +200,25 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container contact-content">
-            <h2 class="section-title">ติดต่อกับฉัน</h2>
-            <p class="contact-text">ฉันสนใจในโครงการใหม่ๆ และการทำงานร่วมกัน ยินดีต้อนรับที่ได้รู้จักคุณ!</p>
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8">ติดต่อกับฉัน</h2>
+            <p class="text-accent text-lg mb-12 leading-relaxed">ฉันสนใจในโครงการใหม่ๆ และการทำงานร่วมกัน ยินดีต้อนรับที่ได้รู้จักคุณ!</p>
             
-            <div class="contact-links">
-                <a href="mailto:alex@example.com" class="contact-link">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:alex@example.com" class="px-6 py-3 bg-primary text-white font-medium hover:bg-secondary transition-colors flex items-center gap-2">
                     <span>✉</span>
                     Email
                 </a>
-                <a href="https://linkedin.com" target="_blank" class="contact-link">
+                <a href="https://linkedin.com" target="_blank" class="px-6 py-3 bg-primary text-white font-medium hover:bg-secondary transition-colors flex items-center gap-2">
                     <span>in</span>
                     LinkedIn
                 </a>
-                <a href="https://github.com/JessadaID" target="_blank" class="contact-link">
+                <a href="https://github.com/JessadaID" target="_blank" class="px-6 py-3 bg-primary text-white font-medium hover:bg-secondary transition-colors flex items-center gap-2">
                     <span>⚙</span>
                     GitHub
                 </a>
-                <a href="https://twitter.com" target="_blank" class="contact-link">
+                <a href="https://twitter.com" target="_blank" class="px-6 py-3 bg-primary text-white font-medium hover:bg-secondary transition-colors flex items-center gap-2">
                     <span>𝕏</span>
                     Twitter
                 </a>
@@ -662,12 +227,10 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <p>&copy; 2025 Just Dev. All rights reserved.</p>
+    <footer class="bg-primary text-white py-8 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-400">&copy; 2025 Just Dev. All rights reserved.</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
